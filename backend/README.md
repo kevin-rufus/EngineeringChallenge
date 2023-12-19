@@ -24,7 +24,18 @@ Follow these steps to set up the BellSant Machine Health API:
    ```bash
    yarn
    ```
+### Setup Database
 
+Setup database using scrpts in scripts folder
+
+  ```bash
+    yran seed
+  ```
+
+it will create tables and add two dummy users
+``` bash 
+  [{username: admin, password: admin}, {username: admin, password: admin}]
+```
 ## Usage
 
 ### Starting the API
