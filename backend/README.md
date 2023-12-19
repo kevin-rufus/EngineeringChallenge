@@ -50,10 +50,10 @@ The API will be accessible at `http://localhost:3001` by default. You can change
 
 ### Evaluating Machine Health
 
-You can evaluate the health of a machine by sending a POST request to the `/machine-health` endpoint. Here's an example using cURL:
+You can evaluate the health of a machine by sending a POST request to the `/machine-health` endpoint with your auth token. Here's an example using cURL:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{
+curl -X POST -H "Content-Type: application/json" -H "authorization: YOUR_AUTH_TOKEN" -d '{
   "machines": {
     "weldingRobot": {
       "errorRate": "0.5",
@@ -67,21 +67,11 @@ The response will include the machine name and its health score.
 
 ### API Endpoints
 
-- `POST /machine-health`: Calculate the health of a machine based on provided data.
-
-## Testing
-
-You can add and run tests to ensure the correctness of the API. Follow these steps to add tests:
-
-1. Locate the "tests" folder
-
-2. Inside the "tests" folder, you can create test files for your code. You can use testing libraries like Jest, Mocha, or others to write your tests. There is a starter example test to help you get started.
-
-3. To run the tests, use the following command:
-
-   ```bash
-   yarn test
-   ```
+- `POST /machine-health`: If the token is valid it calculate the health of a machine based on provided data.
+- `POST /auth/login`: Creates user session if provided credentials are valid.
+- `POST /auth/register`: Register the user if username is not already taken.
+- `Delete /auth/logout`: Logout the user if token is valid.
+- `GET /auth`: Give user details if the token is valid. 
 
 ## Customization
 

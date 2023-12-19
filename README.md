@@ -1,4 +1,17 @@
-# Factory Health Monitor - Authentication, State Management, and Persistence
+# Factory Health Monitor v2.0 - Elevating Security, Seamless State Handling, and Robust Data Persistence
+
+## Innovative Solution
+
+We've completed the challenge with strategic structural enhancements and exciting feature additions.
+
+### What's Fresh?
+
+- New Login and Register User Screens for mobile app.
+- New Auth routes, middleware and User model for backend.
+- Added a simple database in the backend to simulate the persistence data
+
+### Heads Up!
+   README files of other repos are updated as well. Please have a look
 
 ## Overview
 

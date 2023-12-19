@@ -37,17 +37,20 @@ The project structure is organized as follows:
 - `App.tsx`: The entry point of the Expo app, where the navigation is configured.
 - `components/`: Contains reusable components used throughout the app.
 - `app/`: Contains individual screens or pages/tabs of the app.
-- `data/`: Stores JSON files with machine and part data for evaluation.
+- `providers/`: Store all provider including the Auth Provider.
+- `types/`: Store the Types of project.
+- `constants/`: Contains the constant values of the project. 
 
 ## Screens and Features
 
 The app has the following screens and features:
 
-- **Machine Health**: Allows users to select a machine, part name, and part value, and calculates the health score of the machine.
+- **Login**: This is the initial screen of the app. It allows users to enter their username and password. If the credentials are correct, after pressing the login button, the user will be redirected to the Machine Health Screen. Users can also press the register button and will be redirected to the Register Screen.
 
-## Adding Tests
+- **Register**: Allows users to register themselves by providing all the required information. After successful registration, the user is redirected to the login screen.
 
-You are free to choose how you'd like to test this repo, think about options and approaches and build out (and document!) what you think would be an appropriate testing infrastructure. Hint: think about a combo of unit tests and integration tests, there is an android APK in the root of the exercise if it's helpful.
+- **Machine Health**: Allows users to select a machine, part name, and part value, and calculates the health score of the machine. User can also logout using the Logout button.
+
 
 ## Customization
 
