@@ -6,7 +6,7 @@ import axios from 'axios';
 import Constants from 'expo-constants';
 import RNPickerSelect from 'react-native-picker-select';
 import machineData from '../data/machineData.json';
-import {MachineType} from '../data/types';
+import {MachineType} from '../types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMachineData} from '../app/useMachineData';
 import {useFocusEffect} from 'expo-router';

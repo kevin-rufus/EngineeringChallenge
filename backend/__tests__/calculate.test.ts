@@ -1,9 +1,9 @@
-import {calculatePartHealth, calculateMachineHealth} from '../calculations';
+import {calculatePartHealth, calculateMachineHealth} from '../src/utils/calculations';
 import {
   MachineType,
   WeldingRobotPart,
   partInfo,
-} from '../../native-app/data/types';
+} from '../src/types/machine';
 
 describe('calculatePartHealth', () => {
   it('calculates part health correctly', () => {

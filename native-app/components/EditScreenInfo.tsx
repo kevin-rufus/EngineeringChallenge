@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 import {Button, Platform, StyleSheet, TextInput} from 'react-native';
 
 import {Text, View} from './Themed';
-import {MachineType} from '../data/types';
+import {MachineType} from '../types';
 import {useMachineData} from '../app/useMachineData';
 import {useFocusEffect} from 'expo-router';
 import Picker from './Picker';
