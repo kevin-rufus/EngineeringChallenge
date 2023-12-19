@@ -2,7 +2,12 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import {Link, Tabs} from 'expo-router';
 import {Pressable, useColorScheme} from 'react-native';
 
-import Colors from '../../constants/Colors';
+import Colors from '../../../constants/Colors';
+import { Button } from '../../../components/Themed';
+import { useContext } from 'react';
+import { AuthContext } from '../../../providers/AuthProvider';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AUTH_TOKEN } from '../../../constants';
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -16,11 +21,17 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const {setAuth} = useContext(AuthContext);
 
+  const logOut = () => {
+    AsyncStorage.removeItem(AUTH_TOKEN);
+    setAuth({isLoggedIn: false, token: ''});
+  }
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        headerRight: () => <Button onPress={logOut} style={{marginRight: 10}} text="Logout"></Button>
       }}
     >
       <Tabs.Screen

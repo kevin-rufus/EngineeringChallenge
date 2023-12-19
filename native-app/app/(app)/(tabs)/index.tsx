@@ -1,20 +1,12 @@
 import {Button, Platform, StyleSheet} from 'react-native';
-import {Text, View} from '../../components/Themed';
+import {Text, View} from '../../../components/Themed';
 import {Link, useFocusEffect} from 'expo-router';
 import axios from 'axios';
-import {useMachineData} from '../useMachineData';
+import {useMachineData} from '../../useMachineData';
 import {useCallback, useState} from 'react';
-import {PartsOfMachine} from '../../components/PartsOfMachine';
-import {MachineScore} from '../../components/MachineScore';
-
-let apiUrl: string =
-  'https://fancy-dolphin-65b07b.netlify.app/api/machine-health';
-
-if (__DEV__) {
-  apiUrl = `http://${
-    Platform?.OS === 'android' ? '10.0.2.2' : 'localhost'
-  }:3001/machine-health`;
-}
+import {PartsOfMachine} from '../../../components/PartsOfMachine';
+import {MachineScore} from '../../../components/MachineScore';
+import apiUrl from '../../../constants/apiUrl';
 
 export default function StateScreen() {
   const {machineData, resetMachineData, loadMachineData, setScores} =
@@ -29,7 +21,7 @@ export default function StateScreen() {
 
   const calculateHealth = useCallback(async () => {
     try {
-      const response = await axios.post(apiUrl, {
+      const response = await axios.post(`${apiUrl}/machine-health`, {
         machines: machineData?.machines,
       });
 
@@ -37,7 +29,6 @@ export default function StateScreen() {
         setScores(response.data);
       }
     } catch (error) {
-      console.error(error);
       console.log(
         `There was an error calculating health. ${
           error.toString() === 'AxiosError: Network Error'
